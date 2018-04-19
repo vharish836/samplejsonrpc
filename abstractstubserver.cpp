@@ -2,7 +2,7 @@
 
 #include "abstractstubserver.h"
 #include <jsonrpccpp/server/connectors/httpbasicauthserver.h>
-
+#include "argh.h"
 
 using namespace jsonrpc;
 using namespace std;
@@ -30,9 +30,23 @@ string MyStubServer::sayHello(const string &name)
     return "Hello " + name;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-    HttpBasicAuthServer httpserver(8383,"username","password");
+    argh::parser cmdl({"-p", "--port"});
+    cmdl.parse(argc,argv);
+    if(!cmdl(2))
+    {
+        cerr << "Must provide atleast 2 arguments" << "\n";
+        cerr << "Usage: " << cmdl[0] << " username password [-p/--port <port>]" << "\n";
+        exit(1);
+    }
+    string user;
+    string pass;
+    int port;
+    cmdl(1,"username") >> user;
+    cmdl(2,"password") >> pass;
+    cmdl({"-p","--port"},8383) >> port;
+    HttpBasicAuthServer httpserver(port,user,pass);
     MyStubServer s(httpserver);
     s.StartListening();
     getchar();
