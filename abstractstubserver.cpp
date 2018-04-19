@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "abstractstubserver.h"
-#include <jsonrpccpp/server/connectors/httpserver.h>
+#include <jsonrpccpp/server/connectors/httpbasicauthserver.h>
 
 
 using namespace jsonrpc;
@@ -32,7 +32,7 @@ string MyStubServer::sayHello(const string &name)
 
 int main()
 {
-    HttpServer httpserver(8383);
+    HttpBasicAuthServer httpserver(8383,"username","password");
     MyStubServer s(httpserver);
     s.StartListening();
     getchar();

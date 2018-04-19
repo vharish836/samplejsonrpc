@@ -1,14 +1,14 @@
 #include <iostream>
 
 #include "stubclient.h"
-#include <jsonrpccpp/client/connectors/httpclient.h>
+#include <jsonrpccpp/client/connectors/httpbasicauthclient.h>
 
 using namespace jsonrpc;
 using namespace std;
 
 int main()
 {
-    HttpClient httpclient("http://localhost:8383");
+    HttpBasicAuthClient httpclient("http://localhost:8383","username","password");
     StubClient c(httpclient);
     try
     {
