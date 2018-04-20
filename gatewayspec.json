@@ -1,0 +1,24 @@
+[
+    {
+        "name": "getinfo",
+        "params": {},
+        "returns": {
+            "error" : null,
+            "id" : 1,
+            "result" : {
+               "bestblockhash" : "00a33abb9d935fe69a76ff224e5b624b0a52c6750b430781a6268309d8c562cd",
+               "blocks" : 59,
+               "chain" : "main",
+               "chainname" : "chain1",
+               "chainwork" : "0000000000000000000000000000000000000000000000000000000000003c00",
+               "description" : "MultiChain chain1",
+               "difficulty" : 5.9999999999999995e-08,
+               "headers" : 59,
+               "protocol" : "multichain",
+               "reindex" : false,
+               "setupblocks" : 60,
+               "verificationprogress" : 1
+            }
+        }         
+    }
+]

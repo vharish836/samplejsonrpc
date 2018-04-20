@@ -1,1 +1,1 @@
-g++ stubclient.cpp -ljsoncpp -lcurl -ljsonrpccpp-common -ljsonrpccpp-client -o sampleclient
+g++ gatewayclient.cpp -ljsoncpp -lcurl -ljsonrpccpp-common -ljsonrpccpp-client -o gatewayclient
